@@ -1,0 +1,45 @@
+#:include widgets/char_display.kv
+#:include widgets/charset_display.kv
+#:include widgets/palette_color_picker.kv
+
+
+<MainWindow>:
+    orientation: 'vertical'
+    BoxLayout:
+        size_hint_y: None
+        height: 40
+        Button:
+            size_hint: None, None
+            size: (40,40)
+            text: '<'
+            on_press:
+                opt = root.selected_option
+                opt -=1
+                opt = len(root.options)-1 if opt < 0 else opt
+                root.selected_option = opt
+        Label:
+            text: root.options[root.selected_option] if root.options else ''
+        Button:
+            size_hint: None, None
+            size: (40,40)
+            text: '>'
+            on_press:
+                opt = root.selected_option
+                opt +=1
+                opt = 0 if opt == len(root.options) else opt
+                root.selected_option = opt
+
+    PaletteColorPicker:
+#        rows=1
+        id: bg_color
+        size_hint: 1, .1
+        selected_color: 0
+    PaletteColorPicker:
+#        rows=1
+        id: fg_color
+        size_hint: 1, .1
+        selected_color: 1
+    CharsetDisplay:
+        charset: 'bins/charsets/' + root.options[root.selected_option]
+        fg_color: fg_color.selected_color
+        bg_color: bg_color.selected_color
