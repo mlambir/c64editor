@@ -1,6 +1,7 @@
-#:import PaletteColorPicker widgets.palette_color_picker
+#:import PaletteColorPicker,PaletteButton widgets.palette_color_picker
 
-<PaletteButton@Button>:
+
+<PaletteButton>:
     canvas:
         Color:
             rgb: self.color
@@ -9,3 +10,4 @@
             pos: self.pos
 
 <PaletteColorPicker>:
+    selected_color: 0

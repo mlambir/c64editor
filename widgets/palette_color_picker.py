@@ -12,7 +12,7 @@ class PaletteButton(Button):
     index = NumericProperty()
 
 
-class PaletteColorPicker(BoxLayout):
+class PaletteColorPicker(GridLayout):
     selected_color = NumericProperty()
 
     def __init__(self, **kwargs):

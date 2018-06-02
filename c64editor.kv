@@ -30,15 +30,17 @@
                 root.selected_option = opt
 
     PaletteColorPicker:
-#        rows=1
+        rows: 2
         id: bg_color
         size_hint: 1, .1
         selected_color: 0
     PaletteColorPicker:
-#        rows=1
+        rows: 2
+
         id: fg_color
         size_hint: 1, .1
         selected_color: 1
+
     CharsetDisplay:
         charset: 'bins/charsets/' + root.options[root.selected_option]
         fg_color: fg_color.selected_color
